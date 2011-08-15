@@ -14,6 +14,8 @@ class Post
   property :created_at, DateTime
 end
 
+Post.raise_on_save_failure = true
+
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
