@@ -22,13 +22,11 @@ end
 Yajl::HttpStream.post(url, params, {:symbolize_keys => true, :headers => {"Authorization" => oauth_header}}) do |hash|
   next if hash[:delete]
 
-  post = Post.new(:user => hash[:user][:screen_name], :body => hash[:text], :created_at => hash[:created_at])
-  post.id = hash[:id]
   begin
-    post.save
+    Post.create!(:id => hash[:id], :user => hash[:user][:screen_name], :body => hash[:text], :created_at => hash[:created_at])
     putc "."
     captured += 1
   rescue DataObjects::IntegrityError => e
-    puts e
+    putc "X"
   end
 end
