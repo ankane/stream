@@ -1,8 +1,12 @@
 GIT
-  remote: git@github.com:ankane/yajl-ruby.git
-  revision: 1696f5256eeae0987d48f53b31c6827018ca8898
+  remote: git://github.com/ankane/em-http-request.git
+  revision: de1294eab6bb8e7e7792b219c4b2ff0f6edceb76
   specs:
-    yajl-ruby (0.8.2)
+    em-http-request (1.0.0.beta.4)
+      addressable (>= 2.2.3)
+      em-socksify
+      eventmachine (>= 1.0.0.beta.3)
+      http_parser.rb (>= 0.5.1)
 
 GEM
   remote: http://rubygems.org/
@@ -54,11 +58,16 @@ GEM
       dm-core (~> 1.1.0)
     do_mysql (0.10.6)
       data_objects (= 0.10.6)
+    em-socksify (0.1.0)
+      eventmachine
+    eventmachine (1.0.0.beta.3)
     fastercsv (1.5.4)
+    http_parser.rb (0.5.1)
     json (1.4.6)
     simple_oauth (0.1.5)
     stringex (1.2.2)
     uuidtools (2.1.2)
+    yajl-ruby (0.8.3)
 
 PLATFORMS
   ruby
@@ -66,5 +75,6 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-mysql-adapter
+  em-http-request!
   simple_oauth
-  yajl-ruby!
+  yajl-ruby
