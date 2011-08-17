@@ -25,8 +25,9 @@ Yajl::HttpStream.post(url, params, {:symbolize_keys => true, :headers => {"Autho
   begin
     Post.create!(:id => hash[:id], :user => hash[:user][:screen_name], :body => hash[:text], :created_at => hash[:created_at])
     putc "."
-    captured += 1
   rescue DataObjects::IntegrityError => e
     putc "X"
   end
+  captured += 1
+  puts if captured % 20 == 0
 end
