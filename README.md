@@ -21,11 +21,11 @@ bundle exec ruby stream.rb
 ## What do people want?
 
 ```
-bundle exec ruby wants.rb
+bundle exec ruby wants/map.rb | sort | bundle exec ruby wants/reduce.rb
 ```
 
 ## Who has the most @mentions?
 
 ```
-bundle exec ruby mentions.rb
+bundle exec ruby mentions/map.rb | sort | bundle exec ruby mentions/reduce.rb
 ```
