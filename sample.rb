@@ -9,8 +9,8 @@ EM.run do
   oauth_opts = YAML.load_file("config/oauth.yml").inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
   conn.use EventMachine::Middleware::OAuth, oauth_opts
 
-  http = conn.get
+  http = conn.get :query => {:delimited => "length"}
   http.stream do |chunk|
-    putc "."
+    puts chunk
   end
 end
