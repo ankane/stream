@@ -10,7 +10,7 @@ captured = 0
 trap("INT") do
   puts "\n\nCaptured #{captured} objects from the stream"
   puts "CTRL+C caught, later!"
-  exit(0)
+  EM.stop
 end
 
 parser = Yajl::Parser.new(:symbolize_keys => true)
@@ -46,13 +46,5 @@ EM.run do
       puts "#{headers.http_status}: #{headers.http_reason}"
       EM.stop
     end
-  end
-  http.callback do |callback|
-    puts "callback: #{callback}"
-    EM.stop
-  end
-  http.errback do |error|
-    puts "error: #{error}"
-    EM.stop
   end
 end
